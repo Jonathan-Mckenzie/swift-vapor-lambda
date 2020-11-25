@@ -7,7 +7,7 @@ let package = Package(
             .macOS(.v10_15)
         ],
         products: [
-            .executable(name: "Run", targets: ["Run"]),
+            .executable(name: "RunLocal", targets: ["RunLocal"]),
             .executable(name: "RunLambda", targets: ["RunLambda"])
         ],
         dependencies: [
