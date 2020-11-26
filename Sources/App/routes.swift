@@ -1,6 +1,6 @@
 import Vapor
 
-let BASE_PATH: PathComponent = "v1";
+public let BASE_PATH: PathComponent = "v1";
 
 struct Hello: Content {
     var greeting: String?

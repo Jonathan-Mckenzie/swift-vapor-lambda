@@ -6,7 +6,7 @@ var env = try Environment.detect()
 try LoggingSystem.bootstrap(from: &env)
 let app = Application(env)
 defer { app.shutdown() }
-try configure(app, GreetingController(logger: app.logger), ArithmeticController(logger: app.logger))
+try configureApp(app, GreetingController(logger: app.logger), ArithmeticController(logger: app.logger))
 
 app.servers.use(.lambda)
 try app.run()
