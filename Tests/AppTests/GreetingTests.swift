@@ -13,7 +13,7 @@ final class GreetingTests: AppTesting {
     }
 
     override internal func getPath(_ path: String) -> String {
-        "\(super.getPath(""))/greeting\(path)"
+        "\(super.getPath(""))/\(GREETING_PATH.description)\(path)"
     }
 
     static let allTests = [
