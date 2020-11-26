@@ -1,12 +1,15 @@
 import Vapor
 
-// configures your application
 public func configureApp(_ app: Application,
-                         _ greetingController: GreetingController,
-                         _ arithmeticController: ArithmeticController) throws {
-    // uncomment to serve files from /Public folder
-    // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
+                         _ logger: Logger) throws {
+    // inject dependencies
+    let greetingController = GreetingController(logger: logger)
+    let arithmeticController = ArithmeticController(logger: logger)
 
     // register routes
-    try routes(app, greetingController, arithmeticController)
+    try routes(
+            app,
+            greetingController,
+            arithmeticController
+    )
 }

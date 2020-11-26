@@ -7,8 +7,7 @@ class AppTesting: XCTestCase {
         let app = Application(.testing)
         try configureApp(
                 app,
-                GreetingController(logger: app.logger),
-                ArithmeticController(logger: app.logger)
+                app.logger
         )
         return app;
     }

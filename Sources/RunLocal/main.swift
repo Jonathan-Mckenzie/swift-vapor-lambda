@@ -7,7 +7,6 @@ let app = Application(env)
 defer { app.shutdown() }
 try configureApp(
         app,
-        GreetingController(logger: app.logger),
-        ArithmeticController(logger: app.logger)
+        app.logger
 )
 try app.run()
