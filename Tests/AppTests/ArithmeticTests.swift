@@ -11,7 +11,7 @@ final class ArithmeticTests: AppTesting {
         let app = try prepareApp()
         defer { app.shutdown() }
 
-        try app.test(.GET, getPath(""), afterResponse: { res in
+        try app.test(.GET, getPath(), afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
             XCTAssertEqual(res.body.string, "you can POST on basic arithmetic operations... (add, subtract, multiply, divide)")
         })
@@ -48,7 +48,7 @@ final class ArithmeticTests: AppTesting {
         )
     }
 
-    override internal func getPath(_ path: String) -> String {
+    override internal func getPath(_ path: String = "") -> String {
         "\(super.getPath(""))/\(ARITHMETIC_PATH.description)/\(path)"
     }
 

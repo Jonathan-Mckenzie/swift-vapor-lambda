@@ -8,7 +8,7 @@ final class GreetingTests: AppTesting {
         let app = try prepareApp()
         defer { app.shutdown() }
 
-        try app.test(HTTPMethod.GET, getPath(""), afterResponse: { res in
+        try app.test(HTTPMethod.GET, getPath(), afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
             XCTAssertEqual(res.body.string, "hello friend, what is your ?name")
         })
@@ -19,7 +19,7 @@ final class GreetingTests: AppTesting {
         defer { app.shutdown() }
 
         let name = "jon"
-        try app.test(HTTPMethod.GET, getPath("") + "?name=\(name)", afterResponse: { res in
+        try app.test(HTTPMethod.GET, getPath() + "?name=\(name)", afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
             XCTAssertEqual(res.body.string, "hello \(name)! Try: '/greeting/acceptable'")
         })
@@ -59,7 +59,7 @@ final class GreetingTests: AppTesting {
         })
     }
 
-    override internal func getPath(_ path: String) -> String {
+    override internal func getPath(_ path: String = "") -> String {
         "\(super.getPath(""))/\(GREETING_PATH.description)/\(path)"
     }
 
