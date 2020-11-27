@@ -1,7 +1,7 @@
 import Foundation
 import Vapor
 
-struct ArithmeticInput: Codable {
+struct ArithmeticInput: Content {
     let a: Int
     let b: Int
 }

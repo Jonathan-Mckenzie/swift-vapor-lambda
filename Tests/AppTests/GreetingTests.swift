@@ -1,4 +1,5 @@
 import XCTVapor
+import NIOHTTP1
 @testable import App
 
 final class GreetingTests: AppTesting {
